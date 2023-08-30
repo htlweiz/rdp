@@ -1,0 +1,50 @@
+FROM lscr.io/linuxserver/code-server:latest
+VOLUME /config/workspace
+VOLUME /dev/sensor
+# COPY cuse /root/cuse
+# COPY root /
+RUN \
+  echo "*** install toolchain ***" && \
+  apt-get update && \
+  apt-get install -y \
+    nginx \
+    python3 \
+    python3-pip \
+    python3-venv \
+    nodejs \
+    cmake \
+    clang \
+    gdb && \
+  rm -rf \
+    /var/log/apt \
+    /var/log/alternatives.log \
+    /var/log/dpkg.log \
+    /var/lib/apt/lists/* \
+    /var/tmp/* && \
+  echo "*** done ***"
+
+    
+  
+# RUN apk update && \
+#     # apk search pip | sort && \
+#     apk add python3 && \
+#     apk add nodejs && \
+#     apk add nginx && \
+#     apk add npm && \
+#     apk add py3-pip && \
+#     apk add zsh && \
+#     echo all done
+# EXPOSE 80
+# VOLUME /mnt/app/gui
+# VOLUME /mnt/app/api
+# VOLUME /mnt/app/log
+# VOLUME /mnt/app/venv
+# RUN mkdir -p /mnt/app/gui
+# RUN mkdir -p /mnt/app/api
+# RUN mkdir -p /mnt/app/log
+# RUN mkdir -p /mnt/app/venv
+# COPY run.zsh /mnt/app/run.zsh
+# COPY nginx.conf /etc/nginx/nginx.conf
+# COPY favicon.ico /mnt/app
+# CMD /mnt/app/run.zsh
+

@@ -2,5 +2,5 @@
 	path = cuse
 	url = https://github.com/htlweiz/rdp_cuse.git
 [submodule "api"]
-	path = api
+	path = workspace/api
 	url = https://github.com/htlweiz/rdp_api.git

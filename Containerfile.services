@@ -1,0 +1,12 @@
+FROM vs-code-rdp-base:latest  
+# COPY cuse /root/cuse
+COPY root /
+COPY Requirements.txt /var/venv/Requirements.txt
+RUN \
+  echo installing python dependencies && \
+  python3 -m venv /var/venv/ && \
+  /var/venv/bin/pip install -r /var/venv/Requirements.txt && \
+  chown -R abc:abc /var/venv && \
+  echo done
+
+EXPOSE 80 
