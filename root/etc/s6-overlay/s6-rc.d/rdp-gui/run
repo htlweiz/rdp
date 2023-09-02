@@ -3,9 +3,9 @@
 [ -e /config/logs/ ] || mkdir /config/logs
 
 while true; do
-  [ -e /config/workspace/gui/rdp/ ] && {
-    cd /config/workspace/gui/rdp/ >> /config/logs/gui.script.log 2>&1
-    cp -r /var/rdp/node-module /config/workspace/gui/rdp/ >> /config/logs/gui.script.log 2>&1
+  [ -e /config/workspace/gui/ ] && {
+    cd /config/workspace/gui/ >> /config/logs/gui.script.log 2>&1
+    cp -r /var/rdp/node-module /config/workspace/gui/ >> /config/logs/gui.script.log 2>&1
     # npm install >> /config/logs/gui.script.log 2>&1
     npm run dev >> /config/logs/gui.run.log 2>&1
     sleep 1
