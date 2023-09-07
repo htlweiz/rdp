@@ -10,7 +10,7 @@ sudo podman image build --tag vs-code-rdp-base:latest -f $(dirname $0)/Container
 sudo podman image build --tag vs-code-rdp-services:latest -f $(dirname $0)/Containerfile.services && \
 stop_container && \
 sudo mknod --mode=666 /dev/rdp_cdev c 234 0 
-sudo rm $(dirname $0)/workspace/logs/*.log
+sudo rm $(dirname $0)/config/logs/*.log
 sudo podman run -d --rm --name=code-server \
   -e SUDO_PASSWORD=sudo \
   -e PUID=$(id -u) \
