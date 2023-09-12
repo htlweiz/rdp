@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 stop_container() {
   sudo podman stop code-server || echo container not running
   sudo podman container rm code-server || echo no container
@@ -11,6 +12,7 @@ sudo podman image build --tag vs-code-rdp-services:latest -f $(dirname $0)/Conta
 stop_container && \
 sudo mknod --mode=666 /dev/rdp_cdev c 234 0 
 sudo rm $(dirname $0)/config/logs/*.log
+[ -d $(dirname $0)/config ] || mkdir $(dirname $0)/config
 sudo podman run -d --rm --name=code-server \
   -e SUDO_PASSWORD=sudo \
   -e PUID=$(id -u) \

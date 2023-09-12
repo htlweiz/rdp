@@ -1,4 +1,4 @@
-FROM linuxserver/code-server:latest
+FROM lscr.io/linuxserver/code-server:latest
 VOLUME /config/workspace
 VOLUME /dev/sensor
 COPY cuse /root/cuse/
