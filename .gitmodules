@@ -3,7 +3,7 @@
 	url = https://github.com/htlweiz/rdp_cuse.git
 [submodule "api"]
 	path = workspace/api
-	url = https://github.com/htlweiz/rdp_api.git
+	url = https://github.com/ocPaul/rdp_api_insy.git
 [submodule "workspace/gui"]
 	path = workspace/gui
-	url = https://github.com/htlweiz/rdp_gui.git
+	url = https://github.com/ocPaul/rdp_gui_insy.git
