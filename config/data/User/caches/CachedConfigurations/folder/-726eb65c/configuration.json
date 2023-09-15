@@ -1,0 +1,1 @@
+{"content":{"settings":"{\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"ms-python.black-formatter\"\n    },\n    \"python.formatting.provider\": \"none\"\n}","tasks":"{}","launch":"{}"}}

@@ -1,0 +1,37 @@
+2023-09-15 09:57:09.265 [info] Log level: Info
+2023-09-15 09:57:09.265 [info] Validating found git in: "git"
+2023-09-15 09:57:09.265 [info] Using git "2.34.1" from "git"
+2023-09-15 09:57:09.265 [info] > git rev-parse --show-toplevel [7ms]
+2023-09-15 09:57:09.265 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2023-09-15 09:57:09.265 [info] > git rev-parse --show-toplevel [6ms]
+2023-09-15 09:57:09.265 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2023-09-15 09:57:09.265 [info] > git rev-parse --show-toplevel [12ms]
+2023-09-15 09:57:09.265 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 09:57:09.265 [info] > git rev-parse --show-toplevel [5ms]
+2023-09-15 09:57:09.265 [info] fatal: not a git repository: /config/workspace/gui/../../.git/modules/workspace/gui
+2023-09-15 09:57:09.265 [info] > git rev-parse --show-toplevel [6ms]
+2023-09-15 09:57:09.265 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2023-09-15 09:58:08.809 [info] > git rev-parse --show-toplevel [30ms]
+2023-09-15 09:58:08.809 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 09:59:24.574 [info] > git rev-parse --show-toplevel [2ms]
+2023-09-15 09:59:24.574 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:00:41.392 [info] > git rev-parse --show-toplevel [2ms]
+2023-09-15 10:00:41.392 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:00:45.858 [info] > git rev-parse --show-toplevel [1ms]
+2023-09-15 10:00:45.858 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:00:58.094 [info] > git rev-parse --show-toplevel [21ms]
+2023-09-15 10:00:58.094 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:01:39.665 [info] > git rev-parse --show-toplevel [9ms]
+2023-09-15 10:01:39.665 [info] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2023-09-15 10:06:49.541 [info] > git rev-parse --show-toplevel [5ms]
+2023-09-15 10:06:49.542 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:06:54.480 [info] > git rev-parse --show-toplevel [2ms]
+2023-09-15 10:06:54.480 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:07:18.711 [info] > git rev-parse --show-toplevel [10ms]
+2023-09-15 10:07:18.711 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
+2023-09-15 10:08:28.447 [info] > git rev-parse --show-toplevel [8ms]
+2023-09-15 10:08:28.447 [info] fatal: not a git repository: /config/workspace/api/../../.git/modules/api
