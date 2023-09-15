@@ -1,0 +1,2 @@
+2023/09/15 07:56:45 [error] 123#123: *1 connect() failed (111: Unknown error) while connecting to upstream, client: 10.88.0.1, server: default, request: "GET / HTTP/1.1", upstream: "http://[::1]:5173/", host: "localhost:8080"
+2023/09/15 07:56:52 [error] 123#123: *8 connect() failed (111: Unknown error) while connecting to upstream, client: 10.88.0.1, server: default, request: "GET /api/type/ HTTP/1.1", upstream: "http://[::1]:8000/type/", host: "localhost:8080", referrer: "http://localhost:8080/"

@@ -1,0 +1,28 @@
+
+> rdp@0.0.0 dev
+> vite
+
+
+  VITE v4.4.9  ready in 1833 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  Network: use --host to expose
+DEPRECATION WARNING: Passing percentage units to the global abs() function is deprecated.
+In the future, this will emit a CSS abs() function to be resolved by the browser.
+To preserve current behavior: math.abs(100%)
+To emit a CSS abs() now: abs(#{100%})
+More info: https://sass-lang.com/d/abs-percent
+
+   ╷
+57 │   $dividend: abs($dividend);
+   │              ^^^^^^^^^^^^^^
+   ╵
+    node_modules/bootstrap/scss/vendor/_rfs.scss 57:14         divide()
+    node_modules/bootstrap/scss/mixins/_grid.scss 59:12        row-cols()
+    node_modules/bootstrap/scss/mixins/_grid.scss 85:13        @content
+    node_modules/bootstrap/scss/mixins/_breakpoints.scss 68:5  media-breakpoint-up()
+    node_modules/bootstrap/scss/mixins/_grid.scss 72:5         make-grid-columns()
+    node_modules/bootstrap/scss/_grid.scss 38:3                @import
+    node_modules/bootstrap/scss/bootstrap.scss 20:9            @import
+    src/scss/custom.scss 7:9                                   root stylesheet
+

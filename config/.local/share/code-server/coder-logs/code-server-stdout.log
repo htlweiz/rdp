@@ -1,0 +1,25 @@
+[2023-09-15T06:55:54.122Z] info  code-server 4.16.1 94ef3776ad7bebfb5780dfc9632e04d20d5c9a6c
+[2023-09-15T06:55:54.158Z] info  Using user-data-dir ~/data
+[2023-09-15T06:55:54.563Z] info  Using config file ~/.config/code-server/config.yaml
+[2023-09-15T06:55:54.564Z] info  HTTP server listening on http://0.0.0.0:8443/
+[2023-09-15T06:55:54.564Z] info    - Authentication is disabled
+[2023-09-15T06:55:54.564Z] info    - Not serving HTTPS
+[2023-09-15T06:55:54.565Z] info  Session server listening on /config/data/code-server-ipc.sock
+[2023-09-15T07:56:38.282Z] info  code-server 4.16.1 94ef3776ad7bebfb5780dfc9632e04d20d5c9a6c
+[2023-09-15T07:56:38.283Z] info  Using user-data-dir ~/data
+[2023-09-15T07:56:38.323Z] info  Using config file ~/.config/code-server/config.yaml
+[2023-09-15T07:56:38.324Z] info  HTTP server listening on http://0.0.0.0:8443/
+[2023-09-15T07:56:38.324Z] info    - Authentication is disabled
+[2023-09-15T07:56:38.324Z] info    - Not serving HTTPS
+[2023-09-15T07:56:38.324Z] info  Session server listening on /config/data/code-server-ipc.sock
+[09:57:00] 
+
+
+
+
+[09:57:00] Extension host agent started.
+[09:57:00] Started initializing default profile extensions in extensions installation folder. file:///config/extensions
+[09:57:00] Completed initializing default profile extensions in extensions installation folder. file:///config/extensions
+[09:57:04] [10.88.0.1][b8c2cd04][ManagementConnection] New connection established.
+[09:57:05] [10.88.0.1][dbb1543c][ExtensionHostConnection] New connection established.
+[09:57:05] [10.88.0.1][dbb1543c][ExtensionHostConnection] <335> Launched Extension Host Process.
