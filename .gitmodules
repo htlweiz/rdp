@@ -1,9 +1,9 @@
 [submodule "cuse"]
 	path = cuse
-	url = https://github.com/htlweiz/rdp_cuse.git
+	url = https://github.com/denisepostl/rdp_cuse.git
 [submodule "api"]
 	path = workspace/api
-	url = https://github.com/htlweiz/rdp_api.git
+	url = https://github.com/denisepostl/rdp_api.git
 [submodule "workspace/gui"]
 	path = workspace/gui
-	url = https://github.com/htlweiz/rdp_gui.git
+	url = https://github.com/denisepostl/rdp_gui.git
