@@ -1,6 +1,6 @@
 [submodule "cuse"]
 	path = cuse
-	url = https://github.com/simoposc/rdp_cuse.git
+	url = https://github.com/htlweiz/rdp_cuse.git
 [submodule "api"]
 	path = workspace/api
 	url = https://github.com/simoposc/rdp_api.git
