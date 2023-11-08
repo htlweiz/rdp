@@ -1,0 +1,30 @@
+version: '3'
+volumes:
+  - ./volumes/${STATION_ID}/config:
+  - ./volumes/${STATION_ID}/workspace:
+services:
+  device:
+    build:
+      ./containerfiles/device/
+    environment:
+      - RDP_CUSE_MAJOR=${RDP_CUSE_MAJOR}
+      - RDP_CUSE_MINOR=${STATION_ID}
+    devices:
+      - /dev/cuse:/dev/cuse
+      - /dev/rdp_cdev${STATION_ID}:/dev/rdp_cdev${STATION_ID}
+  code:
+    build: 
+      ./containerfiles/code/
+    volumes:
+      - ./volumes/${STATION_ID}/config:/config
+      - ./volumes/${STATION_ID}/workspace:/config/workspace
+    devices:
+      - /dev/rdp_cdev${STATION_ID}:/dev/rdp_cdev
+    ports:
+      - ${CODE_PORT}:8443
+      - ${BASE_PORT}:80
+    environment:
+      - SUDO_PASSWORD=sudo
+      - TZ=Europe/Vienna
+        #- PUID
+        #- PGID

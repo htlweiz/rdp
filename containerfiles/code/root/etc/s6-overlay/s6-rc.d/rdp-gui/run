@@ -1,0 +1,25 @@
+#!/bin/bash
+
+while [ ! -e /config/venv/bin/activate ]; do
+  while [ ! -e /config/logs ]; do
+    sleep 1
+  done
+  sleep 1
+done
+
+[ -e /config/workspace/gui/node_modules ] || {
+  [ -e /config/node_modules ] && {
+    cp -a /config/node_modules /config/workspace/gui/node_modules
+  }
+}
+
+while true; do
+  [ -e /config/workspace/gui/ ] && {
+    cd /config/workspace/gui >> /config/logs/gui.script.log 2>&1
+    chown -R abc:abc /config
+    npm install >> /config/logs/gui.script.log 2>&1
+    npm run dev >> /config/logs/gui.run.log 2>&1
+    sleep 1
+  }
+done
+

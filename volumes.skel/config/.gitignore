@@ -1,0 +1,10 @@
+venv
+node_modules
+extensions
+data
+.npm
+.bash_history
+.bashrc
+.profile
+.local
+logs

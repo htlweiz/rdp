@@ -1,2 +1,4 @@
-config
-workspace/logs
+volumes
+*.log
+venv
+node_modules

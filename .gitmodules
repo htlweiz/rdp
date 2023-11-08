@@ -1,5 +1,5 @@
 [submodule "cuse"]
-	path = cuse
+	path = dontuse.cuse
 	url = https://github.com/htlweiz/rdp_cuse.git
 [submodule "api"]
 	path = workspace/api
@@ -7,3 +7,12 @@
 [submodule "workspace/gui"]
 	path = workspace/gui
 	url = https://github.com/htlweiz/rdp_gui.git
+[submodule "containerfiles/device/cuse"]
+	path = containerfiles/device/cuse
+	url = https://github.com/htlweiz/rdp_cuse
+[submodule "volumes.skel/workspace/gui"]
+	path = volumes.skel/workspace/gui
+	url = https://github.com/htlweiz/rdp_gui
+[submodule "volumes.skel/workspace/api"]
+	path = volumes.skel/workspace/api
+	url = https://github.com/htlweiz/rdp_api
