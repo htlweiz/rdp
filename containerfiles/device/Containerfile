@@ -1,15 +1,10 @@
-FROM docker.io/library/debian:bookworm-slim 
+FROM device-base:latest 
 # FROM docker.io/library/ubuntu:latest
 COPY cuse /root/cuse
-RUN apt-get clean -y && apt-get update && \
-  apt-get install -y libfuse3-dev cmake gcc g++ libcriterion-dev && \
-  apt-get install -y inotify-tools libfuse3-3 && \ 
-  cd /root/cuse/ && \
-  [ -e build ] && rm -rf build && \
+RUN cd /root/cuse/ && \
+  [ -e build ] && rm -rf build ; \
   mkdir build && cd build && \
   cmake .. && \
   cmake --build . --target=all && \ 
-  apt-cache search libfuse && \
-  apt-cache search inotify && \
   echo All Done
 CMD "/root/cuse/scripts/localstart.sh"

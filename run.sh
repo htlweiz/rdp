@@ -63,8 +63,8 @@ sudo chmod 666 /dev/rdp_cdev${STATION_ID} || fail 4 chmod failed
 
 stepinfo buildbase
 
-sudo podman image build --tag code-base:latest -f ./containerfiles/code/CodeBase.Containerfile 2>&1 > logs/build.log || fail 10 build base failed && \
-# sudo podman image build --tag vs-code-rdp-services:latest -f $(dirname $0)/Containerfile.servic
+podman image build --tag code-base:latest -f ./containerfiles/code/Containerfile.base 2>&1 > logs/build.log || fail 10 build code base failed && \
+podman image build --tag device-base:latest -f ./containerfiles/device/Containerfile.base 2>&1 >> logs/build.log || fail 10 build device base failed && \
 
 stepinfo build
 
@@ -78,7 +78,7 @@ podman pod start pod_rdp_station_${STATION_ID} >> logs/run${STATION_ID}.log 2>&1
 echo Code is accessable at port ${CODE_PORT}
 echo App and api is accessable at port ${BASE_PORT}
 
-{
+[ -z ${SILENT} ] && {
   sleep 10
   xdg-open http://localhost:${CODE_PORT} >/dev/null 2>&1
   xdg-open http://localhost:${BASE_PORT} >/dev/null 2>&1
