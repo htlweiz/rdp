@@ -1,4 +1,8 @@
 #!/bin/sh
+#
+# * autocheck RDP_CUSE_MAJOR
+# * netaardvark-dns
+# * Try in WSL2 (debian)
 
 cd $(dirname $0)
 
@@ -22,7 +26,16 @@ stepinfo setup
 
 export CUSE_MAJOR=$(ls -l /dev/cuse | sed "s/.*root\ //" | cut -d , -f 1 | xargs echo | cut -d \  -f 1)
 export CUSE_MINOR=$(ls -l /dev/cuse | sed "s/.*root\ //" | cut -d , -f 2 | xargs echo | cut -d \  -f 1)
-export RDP_CUSE_MAJOR=230
+export RDP_CUSE_MAJOR=238
+
+# while ls /dev | grep ${RDP_CUSE_MAJOR}, | grep -v rdp_cdev; do
+#   echo ${RDP_CUSE_MAJOR} already taken as major device
+#   $(( RDP_CUSE_MAJOR=RDP_CUSE_MAJOR+1 ))
+# done
+# export RDP_CUSE_MAJOR
+# echo Using RDP_CUSE_MAJOR ${RDP_CUSE_MAJOR}
+
+
 export STATION_ID=0
 
 [ -n "$1" ] && STATION_ID=$1
@@ -33,6 +46,25 @@ export STATION_ID=0
 export BASE_PORT=$(( 8000 + 5*STATION_ID ))
 export CODE_PORT=$(( BASE_PORT + 1 ))
 export LVIM_PORT=$(( BASE_PORT + 2 ))
+mkdir -p ./volumes/
+
+stepinfo requirements
+
+which podman || fail 1 no podman installed
+which podman-compose || fail 1 no podman-compose installed
+which slirp4netns || fail no slirp4netns installed
+ldconfig -p | grep fuse3 || fail 2 no fuse installed
+
+stepinfo submodules
+
+git submodule | while read sub_module_line; do
+  submodule=$(echo ${sub_module_line} | cut -d \  -f 2)
+  if [ -e "./${submodule}/.git" ]; then
+    echo sub ${submodule} OK
+  else 
+    fail 1 submodule ${submodule} missing
+  fi
+done
 
 stepinfo copyskel
 
