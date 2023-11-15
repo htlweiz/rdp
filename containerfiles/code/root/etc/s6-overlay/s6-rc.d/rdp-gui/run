@@ -1,25 +1,29 @@
 #!/bin/bash
 
-while [ ! -e /config/venv/bin/activate ]; do
-  while [ ! -e /config/logs ]; do
-    sleep 1
-  done
+HOME_DIR=/config
+LOG_DIR=${HOME_DIR}/logs
+LOG_SCRIPT=${LOG_DIR}/gui_script.log
+LOG_RUN=${LOG_DIR}/gui_run.log
+
+WORKSPACE=${HOME_DIR}/workspace
+GUI_DIR=${WORKSPACE}/gui
+NODE_DIR=${GUI_DIR}/node_modules
+NODE_TEMPLATE=${HOME_DIR}/node_modules
+
+while [ ! -e ${LOG_DIR} ]; do
   sleep 1
 done
 
-[ -e /config/workspace/gui/node_modules ] || {
-  [ -e /config/node_modules ] && {
-    cp -a /config/node_modules /config/workspace/gui/node_modules
-  }
-}
+if [ ! -e ${NODE_DIR} ] &&  [ -e ${NODE_TEMPLATE} ]; then
+  cp -a ${NODE_TEMPLATE} ${NODE_DIR} 
+fi
 
 while true; do
-  [ -e /config/workspace/gui/ ] && {
-    cd /config/workspace/gui >> /config/logs/gui.script.log 2>&1
-    chown -R abc:abc /config
-    npm install >> /config/logs/gui.script.log 2>&1
-    npm run dev >> /config/logs/gui.run.log 2>&1
+  if [ -e ${GUI_DIR} ]; then
+    cd ${GUI_DIR} >> ${LOG_SCRIPT}
+    npm install >> ${LOG_SCRIPT}
+    npm run dev >> ${LOG_RUN}
     sleep 1
-  }
+  fi
 done
 

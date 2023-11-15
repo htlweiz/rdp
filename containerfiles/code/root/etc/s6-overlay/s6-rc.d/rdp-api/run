@@ -2,7 +2,6 @@
 
 HOME_DIR=/config
 LOG_DIR=${HOME_DIR}/logs
-LOG_LINK=/config/workspace/logs
 LOG_SCRIPT=${LOG_DIR}/api_script.log
 LOG_RUN=${LOG_DIR}/api_run.log
 
@@ -11,26 +10,20 @@ VENV_ACTIVATE=${VENV}/bin/activate
 WORKSPACE=${HOME_DIR}/workspace
 API_DIR=${WORKSPACE}/api
 
-rm -rf ${LOG_DIR}
-mkdir ${LOG_DIR}
-
-chown -R abc:abc ${HOME_DIR}
-
-[ -e ${LOG_LINK} ] && rm -rf ${LOG_LINK}
-ln -s ${LOG_DIR} ${LOG_LINK}
-
 while true; do
-  if [ -e ${VENV_ACTIVATE} ]; then
-    . ${VENV_ACTIVATE} >> ${LOG_SCRIPT} 2>&1 || exit 2
-    cd ${API_DIR} >> ${LOG_SCRIPT} 2>&1 || exit 3
-    chown -R abc:abc ${HOME_DIR}
-    pip install -e ".[dev]" >> ${LOG_SCRIPT} 2>&1 || exit 4
-    uvicorn rdp.api.main:app --reload --host 0.0.0.0 --root-path /api --proxy-headers >> ${LOG_SCRIPT} 2>&1 || exit 5
-    sleep 1
-    deactivate
-  else
-    rm -rf ${VENV} 
-    python3 -m venv ${VENV} >> ${LOG_RUN} 2>&1 || exit 1
+  if [ -e ${LOG_DIR} ]; then
+    if [ -e ${VENV_ACTIVATE} ]; then
+      . ${VENV_ACTIVATE} >> ${LOG_SCRIPT} 2>&1 || exit 2
+      cd ${API_DIR} >> ${LOG_SCRIPT} 2>&1 || exit 3
+      chown -R abc:abc ${HOME_DIR}
+      pip install -e ".[dev]" >> ${LOG_SCRIPT} 2>&1 || exit 4
+      uvicorn rdp.api.main:app --reload --host 0.0.0.0 --root-path /api --proxy-headers >> ${LOG_SCRIPT} 2>&1 || exit 5
+      sleep 1
+      deactivate
+    else
+      rm -rf ${VENV} 
+      python3 -m venv ${VENV} >> ${LOG_RUN} 2>&1 || exit 1
+    fi
   fi
 done
 

@@ -36,7 +36,22 @@ export LVIM_PORT=$(( BASE_PORT + 2 ))
 
 stepinfo copyskel
 
-[ -e ./volumes/${STATION_ID} ] || cp -a ./volumes.skel ./volumes/${STATION_ID}
+if [ ! -e ./volumes/${STATION_ID} ]; then
+  cp -a ./volumes.skel ./volumes/${STATION_ID}
+  for repo in ./volumes/${STATION_ID}/workspace/*; do
+    echo checking repo ${repo}
+    if [ ! -d ${repo}/.git ] && [ -e ${repo}/.git ]; then
+      echo found a repo in ${repo}
+      cd ${repo}
+      rm -rf .git
+      git init .
+      git add .
+      git commit -m "inital commit"
+      cd -
+    fi
+  done
+fi
+
 
 stepinfo checkcuse
 

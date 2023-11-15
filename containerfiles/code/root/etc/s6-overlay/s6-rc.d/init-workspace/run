@@ -1,0 +1,43 @@
+#!/bin/bash
+
+HOME_DIR=/config
+LOG_DIR=${HOME_DIR}/logs
+LOG_LINK=/config/workspace/logs
+LOG_SCRIPT=${LOG_DIR}/init_script.log
+
+EXTENSIONS_FILE=${HOME_DIR}/extensions.txt
+EXTENSIONS_DIR=${HOME_DIR}/extensions
+VS_CODE_BINARY=/app/code-server/bin/code-server 
+
+rm -rf ${LOG_DIR}
+mkdir ${LOG_DIR}
+
+chown -R abc:abc ${HOME_DIR}
+
+[ -e ${LOG_LINK} ] && rm -rf ${LOG_LINK}
+ln -s ${LOG_DIR} ${LOG_LINK}
+
+
+if [ -e ${EXTENSIONS_FILE} ]; then
+  echo Installing extensions >> ${LOG_SCRIPT}
+  while read extensionid; do
+    echo installing Extension ${extensionid}  >> ${LOG_SCRIPT}
+    sudo -u abc ${VS_CODE_BINARY} --install-extension "${extensionid}" --extensions-dir "${EXTENSIONS_DIR}" 2>&1 >> ${LOG_SCRIPT} || echo "Error installing ${extesionid}" >> ${LOG_SCRIPT}
+  done < ${EXTENSIONS_FILE}
+  echo Done installing extensions >> ${LOG_SCRIPT}
+else
+  echo No extensions to install >> ${LOG_SCRIPT}
+fi
+
+sleep_time=10
+while true; do
+  chown -R abc:abc ${HOME_DIR} 2>&1 >> ${LOG_SCRIPT}
+  echo init sleeping for ${sleep_time} >> ${LOG_SCRIPT}
+  sleep ${sleep_time}
+  sleep_time=$((  sleep_time * 2 ))
+  if [ ${sleep_time} -gt 1000 ]; then
+    sleep_time=1000
+  fi
+done
+
+echo init exiting now >> ${LOG_SCRIPT}

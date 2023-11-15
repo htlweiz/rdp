@@ -1,6 +1,0 @@
-#!/bin/bash
-
-[ -e /config/logs/ ] || mkdir /config/logs
-
-/usr/sbin/nginx >/config/logs/00_nginx.out 2>/config/logs/00_nginx.err
-
