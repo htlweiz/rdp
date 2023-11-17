@@ -17,7 +17,7 @@ while true; do
       cd ${API_DIR} >> ${LOG_SCRIPT} 2>&1 || exit 3
       chown -R abc:abc ${HOME_DIR}
       pip install -e ".[dev]" >> ${LOG_SCRIPT} 2>&1 || exit 4
-      uvicorn rdp.api.main:app --reload --host 0.0.0.0 --root-path /api --proxy-headers >> ${LOG_SCRIPT} 2>&1 || exit 5
+      uvicorn rdp.api.main:app --reload --host 0.0.0.0 --root-path /api --proxy-headers >> ${LOG_RUN} 2>&1 || exit 5
       sleep 1
       deactivate
     else

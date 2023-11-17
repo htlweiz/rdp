@@ -4,6 +4,7 @@ volumes:
   - ./volumes/${STATION_ID}/workspace:
 services:
   device:
+    init: true
     build:
       ./containerfiles/device/
     environment:
