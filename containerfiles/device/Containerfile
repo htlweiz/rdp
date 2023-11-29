@@ -1,0 +1,10 @@
+FROM device-base:latest 
+# FROM docker.io/library/ubuntu:latest
+COPY cuse /root/cuse
+RUN cd /root/cuse/ && \
+  [ -e build ] && rm -rf build ; \
+  mkdir build && cd build && \
+  cmake .. && \
+  cmake --build . --target=all && \ 
+  echo All Done
+CMD "/root/cuse/scripts/localstart.sh"

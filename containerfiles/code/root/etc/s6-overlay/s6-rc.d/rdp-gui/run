@@ -1,0 +1,29 @@
+#!/bin/bash
+
+HOME_DIR=/config
+LOG_DIR=${HOME_DIR}/logs
+LOG_SCRIPT=${LOG_DIR}/gui_script.log
+LOG_RUN=${LOG_DIR}/gui_run.log
+
+WORKSPACE=${HOME_DIR}/workspace
+GUI_DIR=${WORKSPACE}/gui
+NODE_DIR=${GUI_DIR}/node_modules
+NODE_TEMPLATE=${HOME_DIR}/node_modules
+
+while [ ! -e ${LOG_DIR} ]; do
+  sleep 1
+done
+
+if [ ! -e ${NODE_DIR} ] &&  [ -e ${NODE_TEMPLATE} ]; then
+  cp -a ${NODE_TEMPLATE} ${NODE_DIR} 
+fi
+
+while true; do
+  if [ -e ${GUI_DIR} ]; then
+    cd ${GUI_DIR} >> ${LOG_SCRIPT}
+    npm install >> ${LOG_SCRIPT}
+    npm run dev >> ${LOG_RUN}
+    sleep 1
+  fi
+done
+

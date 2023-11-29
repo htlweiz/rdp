@@ -1,0 +1,2 @@
+FROM code-base:latest
+COPY root /

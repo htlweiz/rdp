@@ -1,0 +1,7 @@
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+ms-python.flake8
+ms-python.python
+tombonnike.vscode-status-bar-format-toggle
+vue.volar
+xabikos.javascriptsnippets
