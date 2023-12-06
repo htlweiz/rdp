@@ -135,7 +135,7 @@ step_required_libs() {
   fail_level=3
   step_info REQUREMENTS LIBRARIES
   for lib in $*; do
-    ldconfig -p | grep ${lib} >/dev/null 2>&1 || fatal ${fail_level} ${lib} not installed.
+    sudo ldconfig -p | grep ${lib} >/dev/null 2>&1 || fatal ${fail_level} ${lib} not installed.
     info lib ${lib} ok
   done
 }
