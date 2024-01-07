@@ -202,9 +202,11 @@ step_build_pod() {
   step_info BUILD_POD
   project=rdp_station_${STATION_ID}
   build_log=./logs/build_${project}.log
-  
+ 
+  echo buildpod1 
   podman-compose --project-name ${project} build > ${build_log} 2>&1 || \
     tail_log ${fail_level} ${build_log} Failed to build ${project}.
+  echo buildpod2
   tail -n 2 ${build_log} | grep Error: && tail_log ${fail_level} ${build_log} Failed to build ${project}.
   info Successfully build ${project}
 }
@@ -214,12 +216,16 @@ step_restart_pod() {
   step_info RESTART_POD
   project=rdp_station_${STATION_ID}
   run_log=./logs/run_${project}.log
+  echo restartpod1
   podman-compose --project-name ${project} stop >/dev/null 2>&1 || info ${project} not running.
   podman-compose --project-name ${project} down >/dev/null 2>&1 || info ${project} not up.
+  echo restartpod2
   podman pod rm pod_${project} >/dev/null 2>&1 || info pod ${station} not deleted
 
+  echo restartpod3
   podman-compose --in-pod 1 --project-name ${project} up --no-start > ${run_log} 2>&1 || \
     tail_log ${fail_level} ${run_log} Failed to bring up ${project}.
+  echo restartpod4
   tail -n 2 ${run_log} | grep Error: && tail_log ${fail_level} ${run_log} Failed to bring up ${project}.
   info Successfully brought ${project} up.
 
