@@ -7,4 +7,4 @@ RUN cd /root/cuse/ && \
   cmake .. && \
   cmake --build . --target=all && \ 
   echo All Done
-CMD "/root/cuse/scripts/localstart.sh"
+CMD "/root/cuse/scripts/containerstart.sh"
