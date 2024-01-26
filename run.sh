@@ -21,7 +21,7 @@ main() {
   step_build_pod
   step_restart_pod
 
-  fatal 0 Station ID: ${STATION_ID}
+  info Station ID: ${STATION_ID}
 
   # while ls /dev | grep ${RDP_CUSE_MAJOR}, | grep -v rdp_cdev; do
   #   echo ${RDP_CUSE_MAJOR} already taken as major device
