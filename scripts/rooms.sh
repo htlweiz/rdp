@@ -7,7 +7,7 @@ get_room() {
 start_room() {
   room=$1; shift
   for room_nr in  $(get_room ${room} | cut -d , -f 3 ); do
-    $(dirname $0)/../run.sh ${room_nr}
+    $(dirname $0)/../run.sh ${room_nr} 
   done
 }
 stop_room() {
@@ -15,7 +15,7 @@ stop_room() {
   for room_nr in  $(get_room ${room} | cut -d , -f 3 ); do
     pod_name=pod_rdp_station_${room_nr}
     info stopping ${pod_name}
-    podman pod stop ${pod_name} 
+    podman pod stop ${pod_name}
     podman pod rm ${pod_name}
   done
 }
