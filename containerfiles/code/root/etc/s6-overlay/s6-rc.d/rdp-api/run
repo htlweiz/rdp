@@ -5,9 +5,9 @@ LOG_DIR=${HOME_DIR}/logs
 LOG_SCRIPT=${LOG_DIR}/api_script.log
 LOG_RUN=${LOG_DIR}/api_run.log
 
-VENV=${HOME_DIR}/venv
-VENV_ACTIVATE=${VENV}/bin/activate
 WORKSPACE=${HOME_DIR}/workspace
+VENV=${WORKSPACE}/venv
+VENV_ACTIVATE=${VENV}/bin/activate
 API_DIR=${WORKSPACE}/api
 
 while true; do
